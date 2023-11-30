@@ -21,4 +21,22 @@ def ryerson_letter_grade(n):
     return "DCB"[tens - 5] + adjust
 
 
-# Test
+def riffle(items, out=True):
+    if len(items) < 1:
+        return []
+    mid = len(items) // 2
+    first_half = items[:mid]
+    second_half = items[mid:]
+    shuffled = []
+    for i in range(mid):
+        if out:
+            shuffled.append(first_half[i])
+            shuffled.append(second_half[i])
+        else:
+            shuffled.append(second_half[i])
+            shuffled.append(first_half[i])
+    return shuffled
+
+
+
+    
