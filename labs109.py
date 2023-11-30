@@ -1,6 +1,7 @@
 # As an example, here is an implementation of
 # the first problem "Ryerson Letter Grade":
 
+# 1
 def ryerson_letter_grade(n):
     if n < 50:
         return 'F'
@@ -21,6 +22,7 @@ def ryerson_letter_grade(n):
     return "DCB"[tens - 5] + adjust
 
 
+# 3
 def riffle(items, out=True):
     if len(items) < 1:
         return []
@@ -38,5 +40,17 @@ def riffle(items, out=True):
     return shuffled
 
 
+# 4
+def only_odd_digits(n):
+    odd = True
+    while odd:
+        last_digit = n % 10
+        n = n // 10
+        if last_digit % 2 == 0:
+            odd = False
+        elif n <= 0:
+            break
+    return odd
 
-    
+
+
