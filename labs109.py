@@ -86,25 +86,54 @@ def domino_cycle(tiles):
 
 
 # 7
-def color_trio(colours):
-    combinations = {
-        'rr': 'r',
-        'rb': 'y',
-        'ry': 'b',
-        'bb': 'b',
-        'br': 'y',
-        'by': 'r',
-        'yy': 'y',
-        'yb': 'r',
-        'yr': 'b'
-    }
-    new_str = ""
-    if len(colours) == 1:
-        return colours
-    for i in range(len(colours) - 1):
-        tmp = colours[i] + colours[i + 1]
-        if tmp in combinations:
-            new_str += combinations[tmp]
-    return new_str
+# def colour_trio(colours):
+#     combinations = {
+#         'rr': 'r',
+#         'rb': 'y',
+#         'ry': 'b',
+#         'bb': 'b',
+#         'br': 'y',
+#         'by': 'r',
+#         'yy': 'y',
+#         'yb': 'r',
+#         'yr': 'b'
+#     }
+#     while len(colours) > 1:
+#         new_str = ""
+#         for i in range(len(colours) - 1):
+#             tmp = colours[i] + colours[i + 1]
+#             new_str += combinations[tmp]
+#         colours = new_str
+    
+#     return colours
+
+
+def colour_trio(colours):
+    options = "byr"
+    # while len(colours) > 1:
+    # new_str = ""
+    
+    while len(colours) > 1:
+        new_str = ""
+        # print(len(colours))
+        for i in range(len(colours) - 1):
+            if colours[i] == colours[i + 1]:
+                new_str += colours[i]
+            else:
+                tmp = colours[i] + colours[i + 1]
+                res = "".join(set(options) - set(tmp))
+                # print(f"Options: {set(options)}")
+                # print(f"Tmp: {set(tmp)}")
+                # print(f"Res: {res}")
+                new_str += res
+        colours = new_str
+    
+    return colours
+
+# print(colour_trio("rybyry"))
+
+print(colour_trio("brrbb"))
+
+
 
 
