@@ -53,4 +53,34 @@ def only_odd_digits(n):
     return odd
 
 
+# 5
+def is_cyclops(n):
+    n = str(n)
+    if len(n) % 2 == 0:
+        return False
+    mid = len(n) // 2
+    if n[mid] != str(0):
+        return False
+    for index, digit in enumerate(n):
+        digit = int(digit)
+        if digit == 0 and index != mid:
+            return False
+    return True
+
+
+# 6
+def domino_cycle(tiles):
+    if len(tiles) < 1:
+        return True
+    if len(tiles) == 1:
+        if tiles[0][0] == tiles[0][1]:
+            return True
+        else:
+            return False
+    if tiles[-1][1] != tiles[0][0]:
+        return False
+    for i in range(len(tiles) - 1):
+        if tiles[i][1] != tiles[i + 1][0]:
+            return False
+    return True
 
