@@ -84,3 +84,27 @@ def domino_cycle(tiles):
             return False
     return True
 
+
+# 7
+def color_trio(colours):
+    combinations = {
+        'rr': 'r',
+        'rb': 'y',
+        'ry': 'b',
+        'bb': 'b',
+        'br': 'y',
+        'by': 'r',
+        'yy': 'y',
+        'yb': 'r',
+        'yr': 'b'
+    }
+    new_str = ""
+    if len(colours) == 1:
+        return colours
+    for i in range(len(colours) - 1):
+        tmp = colours[i] + colours[i + 1]
+        if tmp in combinations:
+            new_str += combinations[tmp]
+    return new_str
+
+
