@@ -107,7 +107,7 @@ def domino_cycle(tiles):
     
 #     return colours
 
-
+# 7
 def colour_trio(colours):
     options = "byr"
     while len(colours) > 1:
@@ -123,8 +123,13 @@ def colour_trio(colours):
     
     return colours
 
-print(colour_trio("brrbb"))
 
-
-
-
+# 8
+def count_dominators(items):
+    max_item = items[-1]
+    count = 1
+    for i in range(len(items) - 2, -1, -1):
+        if items[i] > max_item:
+            max_item = items[i]
+            count += 1
+    return count
