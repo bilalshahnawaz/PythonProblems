@@ -110,27 +110,18 @@ def domino_cycle(tiles):
 
 def colour_trio(colours):
     options = "byr"
-    # while len(colours) > 1:
-    # new_str = ""
-    
     while len(colours) > 1:
         new_str = ""
-        # print(len(colours))
         for i in range(len(colours) - 1):
             if colours[i] == colours[i + 1]:
                 new_str += colours[i]
             else:
                 tmp = colours[i] + colours[i + 1]
                 res = "".join(set(options) - set(tmp))
-                # print(f"Options: {set(options)}")
-                # print(f"Tmp: {set(tmp)}")
-                # print(f"Res: {res}")
                 new_str += res
         colours = new_str
     
     return colours
-
-# print(colour_trio("rybyry"))
 
 print(colour_trio("brrbb"))
 
