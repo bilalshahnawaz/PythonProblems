@@ -133,3 +133,30 @@ def count_dominators(items):
             max_item = items[i]
             count += 1
     return count
+
+
+# 9
+def extract_increasing(digits):
+    digits = [int(x) for x in digits]
+    extracted = [digits[0]]
+    i = 0
+    while i < len(digits) - 1:
+        if digits[i + 1] > extracted[-1]:
+            extracted.append(digits[i + 1])
+            i += 1
+        else:
+            combined = ""
+            for j in range(i + 1, len(digits)):
+                combined += str(digits[j])
+                if int(combined) > extracted[-1]:
+                    extracted.append(int(combined))
+                    i = j
+                    break
+                if j == len(digits) - 1:
+                    i = j
+    return extracted
+
+    
+
+
+
